@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - BMI</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css"  rel="stylesheet" />
+    <link rel="preload" href="Mona-Sans.woff2" as="font" type="font/woff2" crossorigin>
+</head>
+<body>
+
+        <section class="bg-gradient-to-t from-[#75a5bb] to-[#5c9dbb] w-full h-dvh overflow-hidden flex justify-center align-center ">
+            <div class="container-custom bg-[#8ab1c3] backdrop-opacity-10  backdrop-blur-md rounded-xl ">
+
+                    <nav class="bg-transparent">
+                        <div class="w-nav flex flex-wrap items-center justify-between mx-auto p-3">
+                            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                                <span class="self-center text-2xl text-white font-semibold whitespace-nowrap">HealtyCare</span>
+                            </a>
+                            <div class="w-44 ">
+                                <ul class="font-medium flex justify-between p-3 items-center">
+                                <li>
+                                    <a href="./index.html" class="block py-2 px-3 text-white  hover:text-[#5c9dbb] " aria-current="page">Home</a>
+                                </li>
+                                <li>
+                                    <a href="./bmi.html" class="block py-2 px-3 text-white hover:text-[#5c9dbb] ">Calculate</a>
+                                </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <section class="w-body">
+                    <div class="grid grid-cols-1 lg:grid-cols-2">
+                            <div class="flex items-center sm:px-6 lg:px-8">
+                                <div class="xl:w-full xl:max-w-sm md:w-full sm:w-full mx-auto">
+                                    <h2 class="text-3xl font-bold text-center leading-tight text-white sm:text-4xl">BMI KALKULATOR</h2>
+                    
+                                    <form action="#" method="POST" id="bmiForm" class="mt-8">
+                                        <div class="space-y-5">
+                                            <div class="w-[100%] flex">
+                                                <input type="radio" id="male" name="gender" value="laki-laki">
+                                                <label class="w-[50%] justify-center" for="male">
+                                                    <img class="w-[50%] m-auto" src="./man.png" alt="laki-laki">
+                                                </label>
+                                                <input type="radio" id="female" name="gender" value="perempuan">
+                                                <label class="w-[50%] justify-center" for="female">
+                                                    <img class="w-[50%] m-auto" src="./woman.png" alt="perempuan">
+                                                </label>
+                                            </div>
+                                                
+                                            <div>
+                                                <label for="" class="text-base font-medium text-white"> Umur</label>
+                                                <div class="mt-1.5">
+                                                    <input
+                                                        type="number"
+                                                        id="age"
+                                                        required
+                                                        placeholder="Masukan Umur Anda"
+                                                        class="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                                    />
+                                                </div>
+                                            </div>
+                    
+                                            <div>
+                                                <label for="" class="text-base font-medium text-white"> Tinggi (cm) *</label>
+                                                <div class="mt-1.5">
+                                                    <input
+                                                    t   ype="number" id="height" step="0.01" required
+                                                        placeholder="Masukan Tinggi Badan"
+                                                        class="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                                    />
+                                                </div>
+                                            </div>
+                    
+                                            <div>
+                                                <label for="" class="text-base font-medium text-white"> Berat (kg) *</label>
+                                                <div class="mt-1.5">
+                                                    <input
+                                                        type="number" id="weight" step="0.1" required
+                                                        placeholder="Masukan Berat Badan"
+                                                        class="block w-full p-3 text-black placeholder-gray-500 transition-all duration-200 border border-gray-200 rounded-md bg-gray-50 focus:outline-none focus:border-blue-600 focus:bg-white caret-blue-600"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <button type="button" onclick="hitungBMI()" class="inline-flex items-center justify-center w-full px-4 py-4 text-base font-semibold text-white transition-all duration-200 bg-gradient-to-r from-[#447b96 to-[#5c9dbb] border border-transparent rounded-md focus:outline-none hover:bg-blue-700 focus:bg-blue-700">
+                                                    HITUNG
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                    
+                            <div class="flex items-center justify-center px-4 hidden lg:block ">
+                                <div>
+                                    <img class="w-[80%] mt-14 m-auto" src="./imageBmi.jpg" alt="bmi">
+                                    <div class="w-[80%] mt-5 m-auto">
+                                        <h1 class="text-2xl font-bold text-center leading-tight text-white sm:text-4xl">BMI RESULT</h1>
+                                        <div class="text-3xl font-medium text-center text-white sm:text-4xl" id="bmiRes"></div>
+                                        <div class="text-xl font-bold text-center text-white sm:text-xl" id="statusRes"></div>
+                                        <div class="text-xl font-medium text-center text-white sm:text-xl" id="result"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                    
+            </div>
+        </section>
+
+
+
+
+
+
+    <script src="script.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+</body>
+</html>
